@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "pytest_tryouts"
+version = "0.1.0"
+description = ""
+authors = ["Aviv Nakar <aviv@skillsetech.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pytest = "^8.3.2"
+playwright = "^1.45.1"
+pytest-playwright = "^0.5.1"
+isort = "^5.13.2"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.2"
+mypy = "^1.11.0"
+flake8 = "^7.1.0"
+pylint = "^3.2.6"
+
+[tool.isort]
+profile = "black"
+
+[tool.pylint]
+ignored-modules = ["pytest"]
+
+[tool.pylint.messages_control]
+disable = [
+    "missing-class-docstring",
+    "missing-module-docstring",
+    "missing-function-docstring",
+    "redefined-outer-name",
+]
+
+[tool.pylint.reports]
+reports = "no"
+
+[tool.pylint.format]
+max-line-length = 100
+
+[tool.pylint.design]
+max-args = 5
+
+[tool.pylint.typecheck]
+contextmanager-decorators = ["contextlib.contextmanager", "pytest.fixture"]
+
+[tool.pylint.imports]
+allow-wildcard-with-all = true
+extension-pkg-whitelist = ["pytest"]
+
+[tool.pylint.logging]
+logging-modules = ["logging"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
